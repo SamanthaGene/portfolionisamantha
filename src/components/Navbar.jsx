@@ -11,7 +11,7 @@ export default function Navbar({ currentPage, navigateTo, open, setOpen }) {
           <div className="w-8 h-8 rounded-full bg-[#D3BC8E] border border-white overflow-hidden flex-shrink-0">
             <img src="/paimon.png" alt="Traveler Avatar" className="w-full h-full object-cover"/>
           </div>
-          <h1 className="text-2xl font-serif font-bold tracking-wide text-[#4A5061]">Welcome to Teyvat!</h1>
+          <h1 className="text-2xl font-serif font-bold tracking-wide text-[#4A5061]">Welcome to Teyvat</h1>
         </div>
 
         <div className="hidden md:flex space-x-10 text-[#4A5061] font-bold uppercase tracking-wider text-sm">

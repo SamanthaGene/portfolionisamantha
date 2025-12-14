@@ -1,14 +1,14 @@
 // src/components/Profile.jsx
 import React from 'react';
-import { getElementStyle, CERTIFICATES_DATA } from '../data/constants';
+import { motion } from 'framer-motion';
+// Ensure all necessary data is imported
+import { getElementStyle, CERTIFICATES_DATA, SKILLS_DATA, CONTACTS_DATA } from '../data/constants'; 
 
 // PROP RECEIVED: Destructure setSelectedCert from props
 export default function Profile({ setSelectedCert }) {
   return (
     <section id="profile">
-      {/* --- TRAVELER STATS CARD --- 
-      (No changes to this section)
-      */}
+      {/* --- TRAVELER STATS CARD (CONTAINER FOR CONTACTS) --- */}
       <div className="flex items-center gap-4 mb-8">
         <div className="h-1 flex-grow bg-gradient-to-r from-transparent via-[#D3BC8E] to-transparent opacity-50"></div>
         <h2 className="text-3xl font-serif font-bold text-[#4A5061]">Traveler Stats</h2>
@@ -42,12 +42,68 @@ export default function Profile({ setSelectedCert }) {
           <p className="text-[#687085] italic mb-6 border-l-4 border-[#BD411D] pl-4">
             "Hi! I'm an aspiring back-end developer currently expanding my knowledge..."
           </p>
+
+          {/* 📞 CONTACTS & SOCIALS */}
+          <div className="mt-6 pt-4 border-t border-[#D3BC8E]/50">
+             <h4 className="text-xl font-bold text-[#4A5061] mb-3">Socials</h4>
+            <div className="flex flex-wrap gap-3">
+              {CONTACTS_DATA.map((contact, index) => (
+                <motion.a 
+                  key={index}
+                  href={contact.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  whileHover={{ scale: 1.05, backgroundColor: '#c2a875' }} 
+                  className="flex items-center gap-2 bg-[#D3BC8E] p-2 px-4 rounded-full shadow-md text-sm font-semibold text-white border border-[#c2a875] transition duration-300"
+                >
+                  <img 
+                    src={contact.iconPath} 
+                    alt={`${contact.name} icon`} 
+                    className="w-5 h-5 object-contain"
+                  />
+                  {contact.name}
+                </motion.a>
+              ))}
+            </div>
+          </div>
         </div>
       </div>
+      {/* --- END TRAVELER STATS CARD --- */}
+      
+      {/* 🛠️ SKILLS SECTION (NEW GRADIENT STYLING APPLIED) */}
+      <section id="skills" className="mt-16">
+        <div className="flex items-center gap-4 mb-8">
+          <h2 className="text-3xl font-serif font-bold text-[#4A5061]">Skills Obtained</h2>
+          <div className="h-0.5 flex-grow bg-[#D3BC8E]/50"></div>
+        </div>
 
+        <div className="space-y-6">
+          {Object.entries(SKILLS_DATA).map(([category, skills]) => (
+            <div 
+              key={category} 
+              // *** UPDATED STYLING: Applied 5-Star Project Gradient ***
+              className="p-6 rounded-2xl shadow-lg border-2 border-[#EAD5AA] bg-gradient-to-b from-[#F3A535]/20 to-[#F9F6F2]"
+            >
+              <h3 className="text-lg font-bold text-[#4A5061] mb-3 border-b pb-2 border-dashed border-[#D3BC8E]/50">
+                {category}
+              </h3>
+              <div className="flex flex-wrap gap-2">
+                {skills.map((skill, index) => (
+                  <span 
+                    key={index} 
+                    // Adjusted inner skill chip style for clarity against the gradient
+                    className="bg-white/70 backdrop-blur-sm text-[#4A5061] text-sm px-3 py-1 rounded-full border border-gray-200 shadow-sm"
+                  >
+                    {skill}
+                  </span>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
 
-      {/* --- CERTIFICATES/ACHIEVEMENTS SECTION --- 
-      */}
+      {/* --- CERTIFICATES/ACHIEVEMENTS SECTION (Existing Content) --- */}
       <section id="certifications" className="mt-24">
         <div className="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden">
           <div className="bg-[#ECE5D8] p-4 border-b border-[#D3BC8E]">
@@ -57,7 +113,6 @@ export default function Profile({ setSelectedCert }) {
               {CERTIFICATES_DATA.map((cert) => (
                 <button 
                   key={cert.id} 
-                  // CRITICAL: Call the setter with the certificate object
                   onClick={() => setSelectedCert(cert)} 
                   className="p-6 flex flex-col items-center gap-4 hover:bg-gray-50 transition group focus:outline-none w-full text-left"
                 >

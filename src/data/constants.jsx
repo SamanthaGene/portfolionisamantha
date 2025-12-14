@@ -21,7 +21,7 @@ export const PROJECTS_DATA = [
     title: "Art Therapy: HCI 101 Prototype Making Using Figma",
     element: "Electro",
     rarity: 5,
-    description: "A simple task to explore the work and wonders of UI/UX Designing.",
+    description: "A simple task to explore the work and wonders of UI/UX Designing assigned on HCI 101, Second Semester of 1st Year.",
     enemies: ["Confusing Flow Slime", "Inconsistent Spacing Demon", "Layout Shifting Specter"],
     hp: 150000,
     // --- NEW MEDIA FIELDS ---
@@ -38,7 +38,7 @@ export const PROJECTS_DATA = [
     title: "ADV 102: Compilation of Activities Using Expo and ReactJS",
     element: "Hydro",
     rarity: 5,
-    description: "A responsive website made with ReactJS and Expo Go that utilizes API, CRUD operations and Firebase.",
+    description: "A responsive website made with ReactJS and Expo Go that utilizes API, CRUD operations and Firebase passed on ADV 102, Second Semester of 2nd Year.",
     enemies: ["Unauthenticated Access Warlock", "State Synchronization Glitch"],
     hp: 120000,
     // --- NEW MEDIA FIELDS ---
@@ -51,10 +51,10 @@ export const PROJECTS_DATA = [
   },
   {
     id: 3,
-    title: "ADV 102: PetHelp Website Made Using Expo and ReactJS",
+    title: "ADV 102: PetHelp, A Simple Website Made Using Expo and ReactJS",
     element: "Dendro",
     rarity: 4,
-    description: "A simple website for those who loves animals and willing to adopt one.",
+    description: "To those who loves animals and willing to adopt one. Utilizing ReactJS and Expo Go tasked on ADV 102, Second Semester of 2nd Year.",
     enemies: ["The Simultaneous Application Bug", "Broken Image Link Ogre"],
     hp: 75000,
     // --- NEW MEDIA FIELDS ---
@@ -67,18 +67,17 @@ export const PROJECTS_DATA = [
   },
   {
     id: 4,
-    title: "ADV 102: PetHelp Website Made Using Expo and ReactJS",
-    element: "Dendro",
+    title: "IM 101: Inventory Management Sytem with Point-of-Sales for Ganggang Chicken (Desktop-Based)",
+    element: "Cryo",
     rarity: 4,
-    description: "A simple website for those who loves animals and willing to adopt one.",
-    enemies: ["The Simultaneous Application Bug", "Broken Image Link Ogre"],
-    hp: 75000,
+    description: "A desktop app that caters the needs of Ganggang Chicken, utilizing C# and MySQL presented on IM 101, First Semester of 3rd Year.",
+    enemies: ["The Negative Stock Glitch", "The Decimal Point Disaster"],
+    hp: 60000,
     // --- NEW MEDIA FIELDS ---
-    previewImage: "/petmain.png",
-    videoUrl: "https://www.youtube.com/embed/aVcA1xHJVZg", // Example Video Embed URL
+    previewImage: "/im.jpeg", // Example Video Embed URL
     screenshots: [
-        "/pet1.png", 
-        "/pet2.png",
+        "/im.jpeg", 
+        "/im1.jpeg",
     ]
   }
 ];
@@ -102,7 +101,7 @@ export const TRAVEL_LOG_DATA = [
   {
     day: 1, 
     title: "WorldTech Information Solutions, Inc.", 
-    details: "Opened my eyes to the possibilities when you're in IT industry.",
+    details: "Opened my eyes to the possibilities when you're in IT.",
     images: ["/wisi.jpg", "/wisi1.png"]
   },
   {
@@ -114,7 +113,7 @@ export const TRAVEL_LOG_DATA = [
   {
     day: 3, 
     title: "Mata Technologies, Inc.", 
-    details: "Where creativity, passion, and technology meets with a little bit of fun.",
+    details: "Where creativity, passion, and technology meets, with a little bit of fun.",
     images: ["/mata1.jpg", "/mata2.jpeg"]
   },
   {
@@ -176,7 +175,39 @@ export const DOCUMENTATION_LOG_DATA = [
   {
     day: 4, 
     title: "Balik sa Bohol, balik!", 
-    images: ["/221.jpeg", "/222.jpeg", "/223.jpeg", "/224.jpeg", "/225.jpeg", "/226.jpeg", "/227.jpeg", "/228.jpeg", "/229.jpeg", "/2310.jpeg"]
+    images: ["/221.jpeg", "/222.jpeg", "/223.jpeg", "/224.jpeg", "/225.jpeg", "/226.jpeg", "/227.jpeg", "/228.jpeg", "/229.jpeg", "/2210.jpeg"]
   }
 ];
 // ... (Keep existing helper functions)
+
+export const SKILLS_DATA = {
+    "Front-End": [
+        "ReactJS", 
+        "HTML/CSS", 
+        "Tailwind CSS", 
+        "Expo Go"
+    ],
+    "Back-End & Database": [
+        "MySQL", 
+        "PostgreSQL", 
+        "Firebase", 
+        "XAMPP",
+        "Node.js (Basic)"
+    ],
+    "Tools & Platforms": [
+        "Git", 
+        "GitHub", 
+        "Figma", 
+        "VS Code", 
+        "Postman",
+        "Android Studio"
+    ],
+};
+
+export const CONTACTS_DATA = [
+    // Use ELEMENT_COLORS icons (must exist in your public folder)
+    { name: "Email", iconPath: getElementStyle("Hydro").icon, link: "mailto:samanthagene.cruspero@hcdc.edu.ph" }, // Hydro for communication/flow
+    { name: "LinkedIn", iconPath: getElementStyle("Electro").icon, link: "https://linkedin.com/in/samantha-cruspero-b6bb79282" }, // Electro for networking/charge
+    { name: "GitHub", iconPath: getElementStyle("Pyro").icon, link: "https://github.com/SamanthaGene" }, // Pyro for project creation/fire
+    { name: "Facebook", iconPath: getElementStyle("Anemo").icon, link: "https://facebook.com/samanthacruspero" }, // Anemo for social connection/wind
+];
