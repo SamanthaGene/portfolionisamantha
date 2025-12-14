@@ -18,7 +18,7 @@ export default function Projects({ setSelectedProject, navigateTo }) {
 
       <section id="projects">
          <div className="flex items-center gap-4 mb-8">
-          <h2 className="text-3xl font-serif font-bold text-[#4A5061]">Artifacts & Projects</h2>
+          <h2 className="text-3xl font-serif font-bold text-[#4A5061]">Projects</h2>
           <div className="h-0.5 flex-grow bg-[#D3BC8E]/50"></div>
         </div>
 

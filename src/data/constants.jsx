@@ -174,7 +174,7 @@ export const DOCUMENTATION_LOG_DATA = [
   },
   {
     day: 4, 
-    title: "Balik sa Bohol, balik!", 
+    title: "Balik sa Bohol, Balik!", 
     images: ["/221.jpeg", "/222.jpeg", "/223.jpeg", "/224.jpeg", "/225.jpeg", "/226.jpeg", "/227.jpeg", "/228.jpeg", "/229.jpeg", "/2210.jpeg"]
   }
 ];
