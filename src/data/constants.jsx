@@ -160,27 +160,23 @@ export const CERTIFICATES_DATA = [
 export const DOCUMENTATION_LOG_DATA = [
   {
     day: 1, 
-    title: "Initial Planning & Wireframes", 
-    details: "Defining project scope, user stories, and creating low-fidelity mockups.",
-    images: ["/doc_plan1.jpg", "/doc_plan2.jpg"] // Add your new documentation pictures here
+    title: "Touchdown Cebu!", 
+    images: ["/191.png", "/192.png", "/193.png", "/194.png", "/195.png", "/196.png", "/197.png", "/198.png", "/199.png"] // Add your new documentation pictures here
   },
   {
     day: 2, 
-    title: "Backend Setup & Database Design", 
-    details: "Establishing Firebase structure and creating API endpoint prototypes.",
-    images: ["/doc_backend1.jpg"] 
+    title: "Exploring Cebu...", 
+    images: ["/201.png", "/202.png", "/203.png", "/204.png", "/205.png", "/206.png", "/207.png"] 
   },
   {
     day: 3, 
-    title: "Component Development & State Management", 
-    details: "Building reusable React components and implementing Redux/Context for state control.",
-    images: ["/doc_component1.jpg", "/doc_component2.jpg"] 
+    title: "Bye Ebuc, Hello Bohollywood!", 
+    images: ["/211.jpeg", "/212.jpeg", "/213.jpeg", "/214.jpeg", "/215.jpeg", "/216.jpeg", "/217.jpeg"] 
   },
   {
     day: 4, 
-    title: "Testing & Deployment Prep", 
-    details: "Executing unit and integration tests, finalizing responsive design for production.",
-    images: ["/doc_test1.jpg"]
+    title: "Balik sa Bohol, balik!", 
+    images: ["/221.jpeg", "/222.jpeg", "/223.jpeg", "/224.jpeg", "/225.jpeg", "/226.jpeg", "/227.jpeg", "/228.jpeg", "/229.jpeg", "/2310.jpeg"]
   }
 ];
 // ... (Keep existing helper functions)

@@ -1,10 +1,8 @@
 // src/components/Projects.jsx
 import React from 'react';
 import { motion } from 'framer-motion';
-// --- IMPORTANT: Ensure DOCUMENTATION_LOG_DATA is imported ---
 import { PROJECTS_DATA, TRAVEL_LOG_DATA, DOCUMENTATION_LOG_DATA, getElementStyle, renderStars, PAGES } from '../data/constants'; 
 
-// Destructure navigateTo from props here
 export default function Projects({ setSelectedProject, navigateTo }) {
   return (
     <>
@@ -47,8 +45,7 @@ export default function Projects({ setSelectedProject, navigateTo }) {
                       />
                     </div>
                  )}
-                 {/* END Project Preview Image */}
-
+                 
                  <div className="p-6">
                   <div className="flex justify-between items-start mb-2">
                     <div className="flex">{renderStars(project.rarity)}</div>
@@ -78,7 +75,7 @@ export default function Projects({ setSelectedProject, navigateTo }) {
         </div>
       </section>
 
-      {/* --- TRAVEL LOG SECTION (Original Timeline - Details KEPT) --- */}
+      {/* --- TRAVEL LOG SECTION (Original Size: w-64 h-40) --- */}
       <section id="travel-log" className="mt-24">
         <h2 className="text-3xl font-serif font-bold text-[#4A5061] mb-8">Travel Log</h2>
         <div className="space-y-6">
@@ -88,13 +85,11 @@ export default function Projects({ setSelectedProject, navigateTo }) {
               <div className="relative z-10 w-10 h-10 rounded-full bg-[#F9F6F2] border-2 border-[#D3BC8E] flex items-center justify-center font-bold text-[#D3BC8E]">
                   {log.day}
               </div>
-              <div className="flex-1 bg-white p-6 rounded-2xl shadow-md border-l-4 border-[#D3BC8E]">
+              <div className="flex-1 bg-white p-6 rounded-2xl shadow-md border-l-4 border-[#D3BC8E] overflow-hidden"> 
                   <h3 className="text-xl font-bold mb-2">{log.title}</h3>
-                  {/* DETAILS ARE BACK HERE for Travel Log */}
                   <p className="text-sm text-gray-600 mb-4">{log.details}</p> 
                   
                   <div className="flex gap-2 overflow-x-auto pb-2 border-t border-gray-100">
-                    {/* Image Mapping using TRAVEL_LOG_DATA */}
                     {log.images && log.images.map((imagePath, index) => (
                       <div 
                         key={index} 
@@ -114,7 +109,7 @@ export default function Projects({ setSelectedProject, navigateTo }) {
         </div>
       </section>
 
-      {/* --- DOCUMENTATION SECTION (Timeline 2 - Details REMOVED, Title/Pictures ONLY) --- */}
+      {/* --- DOCUMENTATION SECTION (Larger Images: w-80 h-48) --- */}
       <section id="documentation" className="mt-24">
         <h2 className="text-3xl font-serif font-bold text-[#4A5061] mb-8">Documentation</h2>
         
@@ -125,16 +120,16 @@ export default function Projects({ setSelectedProject, navigateTo }) {
               <div className="relative z-10 w-10 h-10 rounded-full bg-[#F9F6F2] border-2 border-[#D3BC8E] flex items-center justify-center font-bold text-[#D3BC8E]">
                   {log.day}
               </div>
-              <div className="flex-1 bg-white p-6 rounded-2xl shadow-md border-l-4 border-[#D3BC8E]">
+              {/* Added overflow-hidden to ensure container integrity */}
+              <div className="flex-1 bg-white p-6 rounded-2xl shadow-md border-l-4 border-[#D3BC8E] overflow-hidden">
                   <h3 className="text-xl font-bold mb-2">{log.title}</h3>
-                  {/* DETAILS ARE REMOVED HERE for Documentation */}
                   
                   <div className="flex gap-2 overflow-x-auto pt-2 pb-2 border-t border-gray-100">
-                    {/* Image Mapping using DOCUMENTATION_LOG_DATA */}
                     {log.images && log.images.map((imagePath, index) => (
                       <div 
                         key={index} 
-                        className="w-64 h-40 rounded-lg flex-shrink-0 overflow-hidden border border-gray-300" 
+                        // UPDATED SIZE: w-80 h-48 (Larger than Travel Log)
+                        className="w-80 h-48 rounded-lg flex-shrink-0 overflow-hidden border border-gray-300" 
                       >
                         <img 
                           src={imagePath} 
