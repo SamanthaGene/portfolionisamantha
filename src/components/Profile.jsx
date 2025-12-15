@@ -40,7 +40,7 @@ export default function Profile({ setSelectedCert }) {
           </div>
           <p className="text-sm text-gray-600 mb-6">Current Exp: 90% (Deep understanding of the database environment)</p>
           <p className="text-[#687085] italic mb-6 border-l-4 border-[#BD411D] pl-4">
-            "Hi! I'm an aspiring back-end developer currently expanding my knowledge..."
+            "Hi! I’m a 3rd Year BSIT student and an aspiring back-end developer, passionate about expanding my knowledge across both back-end and front-end development to become a more versatile developer..."
           </p>
 
           {/* 📞 CONTACTS & SOCIALS */}
