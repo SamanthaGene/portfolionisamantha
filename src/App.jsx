@@ -13,12 +13,17 @@ import ProjectModal from "./components/ProjectModal";
 import CertificateModal from "./components/CertificateModal"; 
 import ScrollToTop from "./components/ScrollToTop";
 import Footer from "./components/Footer";
+// Assuming you have an ImageModal component for insights (you must create this file)
+import ImageModal from "./components/ImageModal"; 
 
 export default function App() {
   const [currentPage, setCurrentPage] = useState(PAGES.PROFILE);
   const [open, setOpen] = useState(false);
   const [selectedProject, setSelectedProject] = useState(null);
-  const [selectedCert, setSelectedCert] = useState(null); // <-- The critical state
+  const [selectedCert, setSelectedCert] = useState(null); 
+  
+  // *** NEW STATE FOR JOURNAL INSIGHTS ***
+  const [selectedInsightImage, setSelectedInsightImage] = useState(null); 
 
   const navigateTo = (page) => {
     setCurrentPage(page);
@@ -62,7 +67,6 @@ export default function App() {
               transition={{ duration: 0.3 }}
               className="pt-12"
             >
-              {/* PROP PASSED: Correctly passing the setter to Profile */}
               <Profile setSelectedCert={setSelectedCert} /> 
             </motion.div>
           )}
@@ -77,8 +81,12 @@ export default function App() {
               transition={{ duration: 0.3 }}
               className="pt-24" 
             >
-              {/* Pass navigateTo prop here 👇 */}
-              <Projects setSelectedProject={setSelectedProject} navigateTo={navigateTo} />
+              {/* *** NEW PROP PASSED HERE *** */}
+              <Projects 
+                setSelectedProject={setSelectedProject} 
+                navigateTo={navigateTo} 
+                setSelectedInsightImage={setSelectedInsightImage}
+              />
             </motion.div>
           )}
         </AnimatePresence>
@@ -87,8 +95,18 @@ export default function App() {
       {/* 5. Footer & Interactive Elements */}
       <Footer />
       <ProjectModal selectedProject={selectedProject} setSelectedProject={setSelectedProject} />
-      {/* MODAL RENDERED: Correctly passing state and setter to the Modal */}
       <CertificateModal selectedCert={selectedCert} setSelectedCert={setSelectedCert} /> 
+      
+      {/* *** NEW MODAL RENDERED FOR INSIGHTS *** */}
+      <AnimatePresence>
+        {selectedInsightImage && (
+          <ImageModal 
+            imagePath={selectedInsightImage} 
+            onClose={() => setSelectedInsightImage(null)} 
+          />
+        )}
+      </AnimatePresence>
+      
       <ScrollToTop />
     </div>
   );

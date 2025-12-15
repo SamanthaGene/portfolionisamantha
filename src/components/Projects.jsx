@@ -1,9 +1,11 @@
 // src/components/Projects.jsx
 import React from 'react';
 import { motion } from 'framer-motion';
-import { PROJECTS_DATA, TRAVEL_LOG_DATA, DOCUMENTATION_LOG_DATA, getElementStyle, renderStars, PAGES } from '../data/constants'; 
+// Ensure INSIGHTS_DATA is imported from constants
+import { PROJECTS_DATA, TRAVEL_LOG_DATA, DOCUMENTATION_LOG_DATA, INSIGHTS_DATA, getElementStyle, renderStars, PAGES } from '../data/constants'; 
 
-export default function Projects({ setSelectedProject, navigateTo }) {
+// *** ASSUMING YOU UPDATE THE PROP LIST HERE (Added setSelectedInsightImage) ***
+export default function Projects({ setSelectedProject, setSelectedInsightImage, navigateTo }) {
   return (
     <>
       {/* RECALL BUTTON SECTION */}
@@ -46,25 +48,32 @@ export default function Projects({ setSelectedProject, navigateTo }) {
                     </div>
                  )}
                  
-                 <div className="p-6">
-                  <div className="flex justify-between items-start mb-2">
-                    <div className="flex">{renderStars(project.rarity)}</div>
-                    <img src={elementStyle.icon} alt={project.element} className="w-6 h-6 object-contain" />
+                 {/* *** HP ALIGNMENT FIX: ADDED flex flex-col justify-between h-full *** */}
+                 <div className="p-6 flex flex-col justify-between h-full">
+                  
+                  {/* Content Wrapper with flex-grow to push HP down */}
+                  <div className="flex-grow">
+                      <div className="flex justify-between items-start mb-2">
+                        <div className="flex">{renderStars(project.rarity)}</div>
+                        <img src={elementStyle.icon} alt={project.element} className="w-6 h-6 object-contain" />
+                      </div>
+                      <h3 className="text-xl font-serif font-bold text-[#4A5061] mb-2">{project.title}</h3>
+                      <p className="text-sm text-[#687085] line-clamp-2">{project.description}</p>
+                      <div className="mt-4 pt-4 border-t border-dashed border-gray-300">
+                        <p className="text-xs font-bold uppercase text-gray-500 mb-1">Enemies Overcome:</p>
+                        <div className="flex flex-wrap gap-1">
+                          {project.enemies.map((enemy, idx) => (
+                            <span key={idx} className="text-xs bg-gray-200 text-gray-700 px-2 py-0.5 rounded-full">
+                              {enemy}
+                            </span>
+                          ))}
+                        </div>
+                      </div>
                   </div>
-                  <h3 className="text-xl font-serif font-bold text-[#4A5061] mb-2">{project.title}</h3>
-                  <p className="text-sm text-[#687085] line-clamp-2">{project.description}</p>
-                  <div className="mt-4 pt-4 border-t border-dashed border-gray-300">
-                    <p className="text-xs font-bold uppercase text-gray-500 mb-1">Enemies Overcome:</p>
-                    <div className="flex flex-wrap gap-1">
-                      {project.enemies.map((enemy, idx) => (
-                        <span key={idx} className="text-xs bg-gray-200 text-gray-700 px-2 py-0.5 rounded-full">
-                          {enemy}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
+                  {/* End Content Wrapper */}
                 </div>
                 
+                {/* HP Footer is outside the p-6 div, ensuring it's always at the bottom */}
                 <div className="bg-[#EAD5AA] px-4 py-2 flex justify-between items-center">
                   <span className="text-xs font-bold text-[#6B5C3E] uppercase">HP: {project.hp.toLocaleString()}</span>
                   <span className="text-[#6B5C3E] font-bold">→</span>
@@ -109,6 +118,8 @@ export default function Projects({ setSelectedProject, navigateTo }) {
         </div>
       </section>
 
+      
+
       {/* --- DOCUMENTATION SECTION (Larger Images: w-80 h-48) --- */}
       <section id="documentation" className="mt-24">
         <h2 className="text-3xl font-serif font-bold text-[#4A5061] mb-8">Documentation</h2>
@@ -141,6 +152,40 @@ export default function Projects({ setSelectedProject, navigateTo }) {
                   </div>
               </div>
             </div>
+          ))}
+        </div>
+      </section>
+
+      {/* --- JOURNAL AND INSIGHTS SECTION (INSERTED HERE) --- */}
+      <section id="insights" className="mt-24">
+        <div className="flex items-center gap-4 mb-8">
+          <h2 className="text-3xl font-serif font-bold text-[#4A5061]">Journal & Insights</h2>
+          <div className="h-0.5 flex-grow bg-[#D3BC8E]/50"></div>
+        </div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {/* Ensure INSIGHTS_DATA is correctly imported */}
+          {INSIGHTS_DATA.map((insight) => (
+            <motion.button 
+              key={insight.id} 
+              // This function needs to be passed down from the parent component
+              onClick={() => setSelectedInsightImage(insight.fullImagePath)} 
+              whileHover={{ scale: 1.05, boxShadow: "0 10px 20px -5px rgba(211, 188, 142, 0.4)" }} 
+              className="flex flex-col items-center text-center p-6 bg-white rounded-xl shadow-lg border-2 border-[#EAD5AA] hover:border-[#D3BC8E] transition-all duration-300"
+            >
+              {/* Use the Element Icon for visual flair */}
+              <div className="w-10 h-10 mb-3 bg-[#F9F6F2] rounded-full flex items-center justify-center border border-[#D3BC8E]">
+                <img 
+                  src={insight.iconPath} // Requires iconPath from INSIGHTS_DATA in constants
+                  alt={`${insight.company} icon`} 
+                  className="w-6 h-6 object-contain"
+                />
+              </div>
+              
+              <p className="text-xs font-semibold text-[#814638] uppercase">{insight.company}</p>
+              <h3 className="text-lg font-bold text-[#4A5061] mt-1 line-clamp-2">{insight.title}</h3>
+              <span className="mt-3 text-[#D3BC8E] font-bold text-sm">View Journal →</span>
+            </motion.button>
           ))}
         </div>
       </section>

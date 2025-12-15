@@ -211,3 +211,41 @@ export const CONTACTS_DATA = [
     { name: "GitHub", iconPath: getElementStyle("Pyro").icon, link: "https://github.com/SamanthaGene" }, // Pyro for project creation/fire
     { name: "Facebook", iconPath: getElementStyle("Anemo").icon, link: "https://facebook.com/samanthacruspero" }, // Anemo for social connection/wind
 ];
+
+export const INSIGHTS_DATA = [
+    { 
+        id: 1, 
+        title: "Day 1", 
+        company: "WorldTech Information Solutions, Inc.",
+        iconPath: getElementStyle("Electro").icon, // Electro for speed/performance
+        fullImagePath: "/wtj19.jpeg" // Path to the full journal image
+    },
+    { 
+        id: 2, 
+        title: "Day 2, Part 1", 
+        company: "CodeChum",
+        iconPath: getElementStyle("Geo").icon, // Geo for foundation/structure
+        fullImagePath: "/cc20.jpeg" 
+    },
+    { 
+        id: 3, 
+        title: "Day 2, Part 2", 
+        company: "Rivan IT Cebu",
+        iconPath: getElementStyle("Pyro").icon, // Pyro for security/firewall
+        fullImagePath: "/ri20.jpeg" 
+    },
+    { 
+        id: 4, 
+        title: "Day 3", 
+        company: "Mata Technologies, Inc.",
+        iconPath: getElementStyle("Hydro").icon, // Hydro for flow/pipeline
+        fullImagePath: "/mata21.jpeg" 
+    },
+    { 
+        id: 5, 
+        title: "Day 4", 
+        company: "Tagbilaran City Disaster Risk Reduction and Management Office",
+        iconPath: getElementStyle("Anemo").icon, // Anemo for cost reduction/wind
+        fullImagePath: "/cd22.jpeg" 
+    },
+];
