@@ -118,7 +118,7 @@ export const TRAVEL_LOG_DATA = [
   },
   {
     day: 4, 
-    title: "Tagbilaran City Disaster Risk Reduction and Management Office", 
+    title: "Tagbilaran City Disaster Risk Reduction Management Office", 
     details: "Security and integrity is priority when it is for every minority.",
     images: ["/cd1.jpg", "/cd2.jpg"]
   }
@@ -244,7 +244,7 @@ export const INSIGHTS_DATA = [
     { 
         id: 5, 
         title: "Day 4", 
-        company: "Tagbilaran City Disaster Risk Reduction and Management Office",
+        company: "Tagbilaran City Disaster Risk Reduction Management Office",
         iconPath: getElementStyle("Anemo").icon, // Anemo for cost reduction/wind
         fullImagePath: "/cd22.jpeg" 
     },
