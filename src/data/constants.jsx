@@ -75,6 +75,7 @@ export const PROJECTS_DATA = [
     hp: 60000,
     // --- NEW MEDIA FIELDS ---
     previewImage: "/im.jpeg", // Example Video Embed URL
+    videoUrl: "https://www.youtube.com/embed/lHh3eVlal2I",
     screenshots: [
         "/im.jpeg", 
         "/im1.jpeg",
@@ -247,5 +248,12 @@ export const INSIGHTS_DATA = [
         company: "Tagbilaran City Disaster Risk Reduction Management Office",
         iconPath: getElementStyle("Anemo").icon, // Anemo for cost reduction/wind
         fullImagePath: "/cd22.jpeg" 
+    },
+    { 
+        id: 6, 
+        title: "Impression Sheet", 
+        company: "Tour Rating and Feedback",
+        iconPath: getElementStyle("Dendro").icon, // Anemo for cost reduction/wind
+        fullImagePath: "/is23.png" 
     },
 ];

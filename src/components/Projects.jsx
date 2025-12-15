@@ -35,11 +35,14 @@ export default function Projects({ setSelectedProject, setSelectedInsightImage, 
                  className={`
                    relative cursor-pointer rounded-tr-3xl rounded-bl-3xl overflow-hidden shadow-lg border-2 border-[#EAD5AA]
                    bg-gradient-to-b ${project.rarity === 5 ? 'from-[#F3A535]/20 to-[#F9F6F2]' : 'from-[#A48EE6]/20 to-[#F9F6F2]'}
+                   
+                   // START: HP FIX APPLIED HERE
+                   flex flex-col h-full // Outer wrapper is now a flex column with full height
                  `}
                >
                  {/* Project Preview Image */}
                  {project.previewImage && (
-                    <div className="w-full h-32 overflow-hidden bg-gray-100">
+                    <div className="w-full h-32 overflow-hidden bg-gray-100 flex-shrink-0"> 
                       <img 
                         src={project.previewImage} 
                         alt={`${project.title} Preview`} 
@@ -48,11 +51,10 @@ export default function Projects({ setSelectedProject, setSelectedInsightImage, 
                     </div>
                  )}
                  
-                 {/* *** HP ALIGNMENT FIX: ADDED flex flex-col justify-between h-full *** */}
-                 <div className="p-6 flex flex-col justify-between h-full">
+                 {/* Content Wrapper: Takes up remaining vertical space */}
+                 <div className="p-6 flex-grow">
                   
-                  {/* Content Wrapper with flex-grow to push HP down */}
-                  <div className="flex-grow">
+                  {/* Content goes here */}
                       <div className="flex justify-between items-start mb-2">
                         <div className="flex">{renderStars(project.rarity)}</div>
                         <img src={elementStyle.icon} alt={project.element} className="w-6 h-6 object-contain" />
@@ -69,12 +71,12 @@ export default function Projects({ setSelectedProject, setSelectedInsightImage, 
                           ))}
                         </div>
                       </div>
-                  </div>
-                  {/* End Content Wrapper */}
+                  
+                  {/* End Content */}
                 </div>
                 
-                {/* HP Footer is outside the p-6 div, ensuring it's always at the bottom */}
-                <div className="bg-[#EAD5AA] px-4 py-2 flex justify-between items-center">
+                {/* HP Footer: Always fixed at the bottom, does not grow */}
+                <div className="bg-[#EAD5AA] px-4 py-2 flex justify-between items-center flex-shrink-0">
                   <span className="text-xs font-bold text-[#6B5C3E] uppercase">HP: {project.hp.toLocaleString()}</span>
                   <span className="text-[#6B5C3E] font-bold">→</span>
                 </div>

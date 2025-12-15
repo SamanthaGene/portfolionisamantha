@@ -50,7 +50,7 @@ export default function App() {
 
       {/* UID Watermark */}
       <div className="fixed bottom-4 right-4 text-xs font-mono text-gray-400 z-50 pointer-events-none">
-        UID: 868532598 | SERVER: ASIA
+        ID: 59834140 | SERVER: HCDC
       </div>
 
       {/* 4. Main Content Area */}
