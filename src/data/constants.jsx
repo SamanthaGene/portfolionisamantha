@@ -169,7 +169,7 @@ export const DOCUMENTATION_LOG_DATA = [
   },
   {
     day: 3, 
-    title: "Bye Ebuc, Hello Bohollywood!", 
+    title: "Bye Ubec, Hello Bohollywood!", 
     images: ["/211.jpeg", "/212.jpeg", "/213.jpeg", "/214.jpeg", "/215.jpeg", "/216.jpeg", "/217.jpeg"] 
   },
   {
